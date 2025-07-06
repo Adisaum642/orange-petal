@@ -1,0 +1,72 @@
+
+.home {
+  width: 100%;
+
+  overflow: hidden; 
+    text-align: center;
+  }
+  
+  .hero-section {
+    position: relative;
+    text-align: center;
+  }
+  
+  .navbar-logo2 {
+    height: 140px; /* or whatever size works */
+    width: auto;
+    
+  }
+  .hero-video {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+
+  
+  }
+  .hero-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+  }
+  
+  .hero-text h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+  
+  .hero-text p {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  
+  .cta-button {
+    padding: 0.75rem 2rem;
+    font-size: 1rem;
+    background-color: #ff8c42;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .about-section {
+    margin: 4rem 0;
+  }
+  
+  .about-section h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .about-section p {
+    font-size: 1.2rem;
+    max-width: 800px;
+    margin: 0 auto 2rem;
+  }
+  
+  .about-image {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+  }

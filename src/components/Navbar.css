@@ -1,0 +1,36 @@
+.navbar {
+    display: flex;
+    align-items: center;
+    height: 60px;
+    padding: 0 20px;
+    background: hsl(28, 91%, 45%); /* or your preferred color */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  
+  .navbar-logo {
+    height: 50px; /* or whatever size works */
+    width: auto;
+  }
+  
+  .logo {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-left: 10px;
+  }
+  
+  .nav-links {
+    display: flex;
+    list-style: none;
+    margin-left: auto;
+  }
+  
+  .nav-links li {
+    margin-left: 20px;
+  }
+  
+  .nav-links a {
+    text-decoration: none;
+    color: #333;
+  }
+
+  
