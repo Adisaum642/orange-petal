@@ -31,7 +31,9 @@ const Navbar = () => {
     >
       <Toolbar>
         {/* Logo & Brand */}
+
         <Box sx={{ display: 'flex', alignItems: 'center', mr: 2 }}>
+          <Link to="/" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none', color: 'inherit' }}>
           <img src={logo} alt="Logo" height={44} style={{ marginRight: 10 }} />
           <Typography 
             variant="h6"
@@ -41,12 +43,16 @@ const Navbar = () => {
             sx={{
               textDecoration: 'none',
               color: 'inherit',
-              fontWeight: 'bold',
-              letterSpacing: '.1rem'
+             
+              letterSpacing: '.1rem',
+              fontFamily: '"Atkinson Hyperlegible Mono", sans-serif',
+              fontOpticalSizing: 'auto',
+              fontWeight: 1000,
             }}
           >
             Orange Petal
           </Typography>
+          </Link>
         </Box>
 
         {/* Main navigation for md+ screens */}
@@ -56,7 +62,7 @@ const Navbar = () => {
               key={page.to}
               component={Link}
               to={page.to}
-              sx={{ color: '#fff', fontWeight: 'bold', mr: 2 }}
+              sx={{ color: '#fff', fontWeight: 'bold', mr: 2, fontFamily: '"Atkinson Hyperlegible Mono", sans-serif', fontOpticalSizing: 'auto' }}
             >
               {page.label}
             </Button>
