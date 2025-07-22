@@ -45,7 +45,7 @@ const Navbar = () => {
               color: 'inherit',
              
               letterSpacing: '.1rem',
-              fontFamily: '"Atkinson Hyperlegible Mono", sans-serif',
+              fontFamily: "Sansation, sans-serif",
               fontOpticalSizing: 'auto',
               fontWeight: 1000,
             }}
@@ -62,7 +62,7 @@ const Navbar = () => {
               key={page.to}
               component={Link}
               to={page.to}
-              sx={{ color: '#fff', fontWeight: 'bold', mr: 2, fontFamily: '"Atkinson Hyperlegible Mono", sans-serif', fontOpticalSizing: 'auto' }}
+              sx={{ color: '#fff', fontWeight: 'bold', mr: 2, fontFamily: 'Sansation, sans-serif', fontOpticalSizing: 'auto' }}
             >
               {page.label}
             </Button>
