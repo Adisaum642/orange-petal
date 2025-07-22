@@ -1,15 +1,16 @@
 import React, { useRef,useState } from 'react';
 import emailjs from 'emailjs-com';
-import { Alert, Snackbar } from '@mui/material';
+import { Alert, Snackbar,CircularProgress } from '@mui/material';
 import './Contact.css';
 
 const Contact = () => {
   const form = useRef();
    const [alert, setAlert] = useState({ open: false, severity: 'success', message: '' });
+   const [loading, setLoading] = useState(false);
 
   const sendEmail = (e) => {
     e.preventDefault();
-
+ setLoading(true);
     emailjs
       .sendForm(
         'service_vyeu6jp', // from EmailJS dashboard
@@ -20,9 +21,11 @@ const Contact = () => {
      .then((result) => {
       setAlert({ open: true, severity: 'success', message: 'Message sent successfully!' });
       form.current.reset();
+      setLoading(false);
     }, (error) => {
       console.error(error);
       setAlert({ open: true, severity: 'error', message: 'Failed to send message. Please try again.' });
+      setLoading(false);
     });
   };
 const handleClose = () => {
@@ -51,7 +54,9 @@ const handleClose = () => {
           <input type="email" name="email" placeholder="Your Email" required />
           <label>Message :</label>
           <textarea name="message" placeholder="Your Message" required></textarea>
-          <button type="submit">Submit</button>
+          <button type="submit" disabled={loading}>
+            {loading ? <CircularProgress size={20} style={{ color: 'white' }} /> : 'Submit'}
+          </button>
         </form>
       </div>
 
