@@ -68,6 +68,9 @@
     color: white;
     border: none;
     cursor: pointer;
+    border-radius: 8px;
+  transition: background 0.2s;
+    font-family: "Sansation", sans-serif;
   }
 
   @media (max-width: 768px) {
