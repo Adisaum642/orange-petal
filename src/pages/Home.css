@@ -61,6 +61,7 @@ font-weight: bold;
   cursor: pointer;
   border-radius: 8px;
   transition: background 0.2s;
+  font-family: "Sansation", sans-serif;
 }
 
 .cta-button:hover,
