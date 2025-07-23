@@ -4,6 +4,10 @@ import wedding from '../assets/weeding.jpeg'
 import Destination from '../assets/Destination.jpeg'
 import Party from '../assets/party.jpeg'
 import Concert from '../assets/concet.jpeg'
+import cor from '../assets/cor.jpg'
+
+
+
 const Services = () => {
   return (
     <div className="services">
@@ -44,6 +48,16 @@ const Services = () => {
           />
           <h2>Concerts</h2>
           <p>Organize unforgettable concerts and live events.</p>
+        </div>
+
+         <div className="service-item">
+          <img
+            src={cor} // Replace with a concert image
+            alt="Cor"
+            className="service-image"
+          />
+          <h2> Corporate Meeting</h2>
+          <p>Organize unforgettable Corporate Meeting.</p>
         </div>
       </div>
     </div>
