@@ -40,7 +40,7 @@ const handleClose = () => {
           <h2>Get in Touch</h2>
           <p>We'd love to hear from you! Reach out to us for inquiries or bookings.</p>
           <ul>
-            <li>Email: info@orangepetal.com</li>
+            <li>Email: info.upasana@orangepetal.in</li>
             <li>Phone: +91 8920742226</li>
             <li>Address: Chawla Complex, Zirakpur, Chandigarh Road, Near KMG Hotel Zirakpur-140603</li>
           </ul>
@@ -48,7 +48,7 @@ const handleClose = () => {
         <form ref={form} onSubmit={sendEmail} className="contact-form">
           <label>Name :</label>
           <input type="text" name="name" placeholder="Your Name" required />
-          <label>Your Mobile No. :</label>
+          <label>Mobile No. :</label>
            <input type="tel" name="phone" placeholder="Your Mobile No." required />
           <label>Email :</label>
           <input type="email" name="email" placeholder="Your Email" required />
