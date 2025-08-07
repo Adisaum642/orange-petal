@@ -34,6 +34,8 @@ const WhyChoose = () => {
         pt: 12,
         px: { xs: 2, sm: 3, md: 6},
         pb:16,
+        pr:{xs: 6},
+        marginTop:{xs: "-33px", sm: "0px", md: "0px"},
 
       }}
     >

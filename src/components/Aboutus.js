@@ -54,6 +54,7 @@ const WhatWeDo = () => {
         pt: { xs: 8, md: 10 },
         pb: { xs: 8, md: 22.625 },
         px: { xs: 2, sm: 4 },
+         marginTop:{xs: "-33px", sm: "0px", md: "0px"},
         textAlign: "center",
         backgroundColor: "#f7be97",
       }}
