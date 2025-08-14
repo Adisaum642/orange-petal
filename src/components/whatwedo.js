@@ -1,68 +1,76 @@
-import React, { useRef } from "react";
-import { Box, Typography, Divider } from "@mui/material";
-import ExtensionOutlinedIcon from "@mui/icons-material/ExtensionOutlined";
+import React, { useRef,useState } from "react";
+import { Box, Typography, Divider , Grid,
+  styled} from "@mui/material";
+import Screen from "../assets/Scene.gif"
+import TeamExp from "../assets/TeamExp.gif";
+import Network from "../assets/network.gif";
+import servicess from "../assets/service.gif";
+import Integration from "../assets/Integration.gif";
+import Tech from "../assets/Tech.gif";
+import TechReview from "../assets/TechRev.gif";
+import CircularProgress from "@mui/material/CircularProgress";
+
 
 const services = [
   {
-    icon: (
-      <ExtensionOutlinedIcon sx={{ color: "#e67626", fontSize: 28, mr: 2 }} />
-    ),
+    icon: `${Screen}`,
     title: "Proven Track Record",
     description:
       "With 2+ years of experience and 25+ successful events, we have the expertise to handle any challenge and exceed your expectations. Our portfolio includes luxury weddings, international destination celebrations, high-profile corporate events, private parties, and major concert productions.",
   },
   {
-    icon: (
-      <ExtensionOutlinedIcon sx={{ color: "#e67626", fontSize: 28, mr: 2 }} />
-    ),
+    icon: `${TeamExp}`,
     title: "Expert Team",
     description:
       "Our certified event planners and coordinators bring decades of combined experience across all event categories. We invest in continuous training and industry certifications to ensure our team stays current with best practices and emerging trends.",
   },
   {
-    icon: (
-      <ExtensionOutlinedIcon sx={{ color: "#e67626", fontSize: 28, mr: 2 }} />
-    ),
+    icon: `${Network}`,
     title: "Vendor Network",
     description:
       "We maintain relationships with premium vendors, venues, and service providers across multiple locations, ensuring access to the best resources for your event. Our vendor partnerships enable us to negotiate favorable rates while maintaining quality standards.",
   },
   {
-    icon: (
-      <ExtensionOutlinedIcon sx={{ color: "#e67626", fontSize: 28, mr: 2 }} />
-    ),
+    icon: `${servicess}`,
     title: "Personalized Service",
     description:
       "We believe every client deserves individual attention. Our dedicated account managers work closely with you throughout the planning process, ensuring clear communication and seamless coordination from initial consultation to post-event follow-up.",
   },
   {
-    icon: (
-      <ExtensionOutlinedIcon sx={{ color: "#e67626", fontSize: 28, mr: 2 }} />
-    ),
+    icon: `${Integration}`,
     title: "Technology Integration",
     description:
       "Our event management platform provides real-time updates, budget tracking, timeline management, and seamless communication tools. Clients have 24/7 access to their event details through our secure client portal.",
   },
   {
-    icon: (
-      <ExtensionOutlinedIcon sx={{ color: "#e67626", fontSize: 28, mr: 2 }} />
-    ),
+    icon: `${Tech}`,
     title: "Technology Assessment & Reviews",
     description:
       "In-depth audits to evaluate performance, security, and scalability.",
   },
   {
-    icon: (
-      <ExtensionOutlinedIcon sx={{ color: "#e67626", fontSize: 28, mr: 2 }} />
-    ),
+    icon: `${TechReview}`,
     title: "Managed Services",
     description: "24/7 operational support, monitoring, and enhancement.",
   },
 ];
 
+
+const stats = [
+    { number: "40+", label: " Satisfied Clients" },
+    { number: "70+", label: "Events Planned" },
+    { number: "21+", label: "Team Members" },
+    { number: "4.8", label: "Customer Rating" },
+    { number: "2+", label: "Years of Experience" },
+    { number: "50+", label: "Successful Projects" },
+  ];
+
+
 const WhatWeDo = () => {
   const sectionRef = useRef(null);
   const serviceRefs = useRef([]);
+  const [loading, setLoading] = useState(true);
+
 
   // Create a ref for each service item
   serviceRefs.current = services.map(
@@ -216,12 +224,34 @@ const WhatWeDo = () => {
               {services.map((service, idx) => (
                 <Box
                   key={service.title}
-                  sx={{ mb: 3 }}
+                  sx={{ mb: 3 ,alignItems: "center"}}
                   ref={serviceRefs.current[idx]}
                   id={idx === 5 ? "llm-service" : ""}
-                >
+                  
+                > 
+                {loading && (
+          <Box
+            sx={{
+              position: "absolute",
+              inset: 0,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              backgroundColor: "rgba(255,255,255,0.7)",
+              borderRadius: "8px",
+            }}
+          >
+            <CircularProgress size={40} />
+          </Box>
+        )}
+                 <img
+            src={service.icon}
+            alt={service.title}
+            style={{ width: "180px", height: "180px" }}
+             onLoad={() => setLoading(false)}
+          />
                   <Box sx={{ display: "flex", alignItems: "center", mb: 0.5 }}>
-                    {service.icon}
+                 
                     <Typography
                       variant="subtitle1"
                       sx={{
@@ -230,6 +260,9 @@ const WhatWeDo = () => {
                         fontSize: "22px",
                         fontFamily: '"Sansation", sans-serif',
                         pb: 1,
+                        textAlign: "center", // this centers text horizontally
+    width: "100%",   
+
                       }}
                     >
                       {service.title}
@@ -257,8 +290,106 @@ const WhatWeDo = () => {
           </div>
         </div>
       </div>
+       <Grid
+  container
+  sx={{
+    ...statisticsContainer,
+    backgroundColor: "#ff8c42",
+    background:
+      "linear-gradient(#EEEEEE, #ff8c42) padding-box, linear-gradient(90.31deg, rgba(208, 209, 210, 0.4) 100%, rgba(208, 209, 210, 0.2) 100%) border-box",
+  }}
+>
+  {stats.map((stat, index) => (
+    <Grid
+      item
+      xs={6}
+      sm={4}
+      md={2.4}
+      key={index}
+      sx={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
+      <StatBox>
+        <Typography
+          variant="h3"
+          sx={{
+            ...statNumber,
+            color: "#252525",
+            fontSize: {
+              xs: "1.5rem",
+              sm: "1.8rem",
+              md: "2rem",
+              lg: "2.2rem",
+            },
+          }}
+        >
+          {stat.number}
+        </Typography>
+        <Typography
+          variant="body2"
+          sx={{
+            ...statLabel,
+            color: "#252525",
+            fontSize: {
+              xs: "0.75rem",
+              sm: "0.85rem",
+              md: "0.9rem",
+              lg: "1rem",
+            },
+          }}
+        >
+          {stat.label}
+        </Typography>
+      </StatBox>
+    </Grid>
+  ))}
+</Grid>
+
     </Box>
   );
 };
 
 export default WhatWeDo;
+
+
+const StatBox = styled(Box)(({ theme }) => ({
+  textAlign: "center",
+  padding: theme.spacing(2),
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
+  justifyContent: "center",
+  "& .MuiTypography-h3": {
+    fontWeight: 700,
+    background: `black`,
+    font: "Space Grotesk",
+    WebkitBackgroundClip: "text",
+    marginBottom: theme.spacing(1),
+  },
+}));
+
+const statisticsContainer = {
+  display: "flex",
+  justifyContent: "space-between",
+  borderRadius: "8px",
+  border: "0.1px solid #D0D1D2",
+  width: "100%",
+  height: "auto",
+  mt: { xs: 4, sm: 6, md: 10 },
+  borderImage:
+    "linear-gradient(90.31deg, rgba(208, 209, 210, 0.4) 8%, rgba(208, 209, 210, 0.2) 100%) 1500",
+  p: { xs: 2, sm: 2, md:0 },
+  gap: { xs: 2, sm: 3, md: 4 },
+};
+
+const statNumber = {
+  fontWeight: 700,
+  fontFamily: "var(--fontFamilyTwo--)",
+};
+
+const statLabel = {
+  fontFamily: "var(--fontFamilyTwo--)",
+};
