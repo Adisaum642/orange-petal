@@ -1,4 +1,4 @@
-import React, { useRef,useState } from "react";
+import React, { useRef } from "react";
 import { Box, Typography, Divider ,Grid} from "@mui/material";
 import yellowFlower from  "../assets/yellowFlower.jpg"; 
 import ringHand from "../assets/ring.jpeg"; 
@@ -6,12 +6,10 @@ import mission from "../assets/ourMissionImage.jpg";
 import gole from "../assets/gole.jpg";
 import storyHand from "../assets/storyHand.jpg"; 
 import storyImg from "../assets/storyImg.jpg";
-import CircularProgress from "@mui/material/CircularProgress";
 
 
 
 const WhatWeDo = () => {
-    const [loading, setLoading] = useState(true);
   const sectionRef = useRef(null);
 
 
@@ -84,27 +82,12 @@ const WhatWeDo = () => {
                     backgroundSize: "cover",
                     backgroundPosition: "center",
                   }}
-                  onLoad={() => setLoading(false)}
                 >
                  
                 
                   <Typography sx={{ color: "#999" , width:"500px"}}></Typography>
                 </Box>
-                 {loading && (
-                          <Box
-                            sx={{
-                              position: "absolute",
-                              inset: 0,
-                              display: "flex",
-                              alignItems: "center",
-                              justifyContent: "center",
-                              backgroundColor: "rgba(255,255,255,0.7)",
-                              borderRadius: "8px",
-                            }}
-                          >
-                            <CircularProgress size={40} />
-                          </Box>
-                        )}
+                
            
                 <Box
                   sx={{
@@ -124,7 +107,6 @@ const WhatWeDo = () => {
                     backgroundSize: "cover",
                     backgroundPosition: "center",
                   }}
-                  onLoad={() => setLoading(false)}
                 >
               
                 
@@ -230,7 +212,6 @@ const WhatWeDo = () => {
                     backgroundSize: "cover",
                     backgroundPosition: "center",
                   }}
-                  onLoad={() => setLoading(false)}
                 >
                  
                
@@ -256,7 +237,6 @@ const WhatWeDo = () => {
                     backgroundSize: "cover",
                     backgroundPosition: "center",
                   }}
-                  onLoad={() => setLoading(false)}
                 >
                  
                 
@@ -317,7 +297,6 @@ const WhatWeDo = () => {
                     backgroundSize: "cover",
                     backgroundPosition: "center",
                   }}
-                  onLoad={() => setLoading(false)}
                 >
                   
                   <Typography sx={{ color: "#999" , width:"500px"}}></Typography>
@@ -342,7 +321,6 @@ const WhatWeDo = () => {
                     backgroundSize: "cover",
                     backgroundPosition: "center",
                   }}
-                  onLoad={() => setLoading(false)}
                 >
                
                 
