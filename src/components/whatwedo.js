@@ -1,55 +1,87 @@
 import React, { useRef,useState } from "react";
 import { Box, Typography, Divider , Grid,
   styled} from "@mui/material";
-import Screen from "../assets/Scene.gif"
-import TeamExp from "../assets/TeamExp.gif";
-import Network from "../assets/network.gif";
-import servicess from "../assets/service.gif";
-import Integration from "../assets/Integration.gif";
-import Tech from "../assets/Tech.gif";
-import TechReview from "../assets/TechRev.gif";
+
 import CircularProgress from "@mui/material/CircularProgress";
+import { DotLottieReact } from '@lottiefiles/dotlottie-react';
+
 
 
 const services = [
   {
-    icon: `${Screen}`,
+    icon: <DotLottieReact
+      src="https://lottie.host/cae0c216-eb88-4db6-968e-692d175a7426/hdlUJVbRud.lottie"
+      loop
+      autoplay
+      style={{ width: "180px", height: "180px",alignItems: "center", }}
+    />,
     title: "Proven Track Record",
     description:
       "With 2+ years of experience and 25+ successful events, we have the expertise to handle any challenge and exceed your expectations. Our portfolio includes luxury weddings, international destination celebrations, high-profile corporate events, private parties, and major concert productions.",
   },
   {
-    icon: `${TeamExp}`,
+    icon:  <DotLottieReact
+           src="https://lottie.host/b933eadb-a63d-49bd-bd79-5f2a8f407b92/3dqYt6EAfM.lottie"
+
+      loop
+      autoplay
+      style={{ width: "250px", height: "250px",alignItems: "center", }}
+    />,
     title: "Expert Team",
     description:
       "Our certified event planners and coordinators bring decades of combined experience across all event categories. We invest in continuous training and industry certifications to ensure our team stays current with best practices and emerging trends.",
   },
   {
-    icon: `${Network}`,
+    icon: <DotLottieReact
+    src="https://lottie.host/8ce1a144-bfeb-4bc0-b5c7-98aea7c98bc5/Y4yFGTMRdX.lottie"
+      loop
+      autoplay
+      style={{ width: "180px", height: "180px",alignItems: "center", }}
+    />,
     title: "Vendor Network",
     description:
       "We maintain relationships with premium vendors, venues, and service providers across multiple locations, ensuring access to the best resources for your event. Our vendor partnerships enable us to negotiate favorable rates while maintaining quality standards.",
   },
   {
-    icon: `${servicess}`,
+    icon: <DotLottieReact
+     src="https://lottie.host/ad04dafc-a3d5-4ab0-94ef-9e9cbc9276a6/hFAE4JbW4D.lottie"
+      loop
+      autoplay
+      style={{ width: "180px", height: "180px",alignItems: "center", }}
+    />,
     title: "Personalized Service",
     description:
       "We believe every client deserves individual attention. Our dedicated account managers work closely with you throughout the planning process, ensuring clear communication and seamless coordination from initial consultation to post-event follow-up.",
   },
   {
-    icon: `${Integration}`,
+    icon: <DotLottieReact
+      src="https://lottie.host/d710ce1a-0d12-4064-bbe2-f635a0ed1e63/NHQvHpHViH.lottie"
+      loop
+      autoplay
+      style={{ width: "180px", height: "180px",alignItems: "center", }}
+    />,
     title: "Technology Integration",
     description:
       "Our event management platform provides real-time updates, budget tracking, timeline management, and seamless communication tools. Clients have 24/7 access to their event details through our secure client portal.",
   },
   {
-    icon: `${Tech}`,
+    icon: <DotLottieReact
+      src="https://lottie.host/3e95ddb0-9d4b-48d6-a695-31c068f6f92a/AKzFc0sJDk.lottie"
+      loop
+      autoplay
+      style={{ width: "180px", height: "180px",alignItems: "center", }}
+    />,
     title: "Technology Assessment & Reviews",
     description:
       "In-depth audits to evaluate performance, security, and scalability.",
   },
   {
-    icon: `${TechReview}`,
+    icon: <DotLottieReact
+      src="https://lottie.host/d682bc90-da37-4aed-9247-4fd339a14069/hqlv4JG6e1.lottie"
+      loop
+      autoplay
+      style={{ width: "180px", height: "180px",alignItems: "center", }}
+    />,
     title: "Managed Services",
     description: "24/7 operational support, monitoring, and enhancement.",
   },
@@ -69,7 +101,7 @@ const stats = [
 const WhatWeDo = () => {
   const sectionRef = useRef(null);
   const serviceRefs = useRef([]);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
 
   // Create a ref for each service item
@@ -237,21 +269,23 @@ const WhatWeDo = () => {
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              backgroundColor: "rgba(255,255,255,0.7)",
+              backgroundColor: "transparent",
               borderRadius: "8px",
             }}
           >
             <CircularProgress size={40} />
           </Box>
         )}
-                 <img
-            src={service.icon}
-            alt={service.title}
-            style={{ width: "180px", height: "180px" }}
-             onLoad={() => setLoading(false)}
-          />
+        <div style={{
+  display: "flex",
+  justifyContent: "center", 
+  alignItems: "center", 
+      
+}}
+ onLoad={() => setLoading(false)}>
+      {service.icon}</div>
                   <Box sx={{ display: "flex", alignItems: "center", mb: 0.5 }}>
-                 
+                    {/* {service.icon} */}
                     <Typography
                       variant="subtitle1"
                       sx={{
@@ -275,8 +309,11 @@ const WhatWeDo = () => {
                       fontSize: "1rem",
                       fontWeight: 400,
                       pl: 5,
+                      pr:5,
                       pb: 2,
                       fontFamily: '"Sansation", sans-serif',
+                       textAlign: "center", // this centers text horizontally
+ 
                     }}
                   >
                     {service.description}
@@ -290,6 +327,15 @@ const WhatWeDo = () => {
           </div>
         </div>
       </div>
+       <div>
+      <DotLottieReact
+      src="https://lottie.host/5aef2b64-fd20-4e87-bec0-4eeead933272/I9gpYVofN7.lottie"
+      loop
+      autoplay
+      style={{ width:"75%", height: "100%", paddingLeft:"55px"}}
+      onLoad={() => setLoading(false)}
+    />
+    </div>
        <Grid
   container
   sx={{
@@ -376,13 +422,15 @@ const statisticsContainer = {
   justifyContent: "space-between",
   borderRadius: "8px",
   border: "0.1px solid #D0D1D2",
-  width: "100%",
+  width: {xs : "100%",sm: "93%", md : "1123px"},
+
+    ml:{xs: 0 , sm: "39px",md: "137px"},
   height: "auto",
-  mt: { xs: 4, sm: 6, md: 10 },
+  mt: { xs: -1.3, sm: -6, md: -4 },
   borderImage:
     "linear-gradient(90.31deg, rgba(208, 209, 210, 0.4) 8%, rgba(208, 209, 210, 0.2) 100%) 1500",
   p: { xs: 2, sm: 2, md:0 },
-  gap: { xs: 2, sm: 3, md: 4 },
+  gap: { xs: 2, sm: 3, md: 0 },
 };
 
 const statNumber = {

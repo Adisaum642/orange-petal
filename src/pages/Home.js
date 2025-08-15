@@ -38,7 +38,7 @@ const Home = () => {
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              backgroundColor: "rgba(255,255,255,0.7)",
+              backgroundColor: "transparent",
               borderRadius: "8px",
             }}
           >
