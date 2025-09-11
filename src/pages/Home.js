@@ -7,6 +7,7 @@ import WhatWeDo from '../components/whatwedo';
 import WhatSetsUs from '../components/WhatSetsUs';
 import AboutUs from '../components/Aboutus'; 
 import WhyChoose from '../components/whychoose';
+import GarbaBanner from '../components/Garba';
 import { Box} from "@mui/material";
 import CircularProgress from "@mui/material/CircularProgress";
 
@@ -51,7 +52,11 @@ const Home = () => {
           <button className="cta-button">Explore Our Services</button>
         </div>
       </div>
+      
+      <div className="services-section"><GarbaBanner /></div>
 <div className="services-section"><WhoWeAre/></div>
+
+
 <div className="services-section"><WhatWeDo/></div>
 <div className="services-section"><WhatSetsUs/></div>
       <div className="about-section">
