@@ -20,7 +20,7 @@ import {
   Avatar,
   Container,
   IconButton,
-  ButtonGroup
+  ButtonGroup,useMediaQuery, useTheme
 } from '@mui/material';
 import {
   CelebrationOutlined,
@@ -40,6 +40,7 @@ import toast, { Toaster } from 'react-hot-toast';
 import axios from 'axios';
 import html2pdf from 'html2pdf.js';
 import logo from '../assets/logo.png';
+import { motion } from 'framer-motion';
 
 // Configure API base URL
 const API_BASE_URL = 'https://garba-booking-backend.onrender.com';
@@ -115,6 +116,9 @@ const TicketBooking = () => {
     { value: 'couple', label: 'Couple Pass', price: 799, icon: '💑' }
   ];
 
+
+  const theme = useTheme();
+const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
   // Load Razorpay script
   useEffect(() => {
     const loadRazorpay = () => {
@@ -741,94 +745,165 @@ const TicketBooking = () => {
   }
 
   // Main Booking Form (unchanged)
-  return (
-    <Container maxWidth="md">
+ return (
+    <Container maxWidth="md" sx={{ py: { xs: 3, md: 6 }, position: 'relative' }}>
       <Toaster position="top-right" />
-      
-      <Box sx={{ mt: 4 }}>
-        {!razorpayLoaded && (
-          <Alert severity="info" sx={{ mb: 2 }}>
-            Loading payment system... Please wait.
-          </Alert>
-        )}
-        
-        <GradientCard elevation={4}>
-          <CardContent sx={{ textAlign: 'center', py: 4 }}>
-            <CelebrationOutlined sx={{ fontSize: 60, mb: 2 }} />
-            <Typography variant="h3" component="h1" gutterBottom>
-              Garba Night 2025
-            </Typography>
-            <Typography variant="h6">
-              Book Your Dance Floor Pass
-            </Typography>
-            <Chip 
-              label="September 27, 2025" 
-              sx={{ mt: 2, bgcolor: 'rgba(255,255,255,0.2)', color: 'white' }}
-            />
-          </CardContent>
-        </GradientCard>
 
-        <Card elevation={4}>
-          <CardContent sx={{ p: 4 }}>
-            <Typography variant="h5" gutterBottom sx={{ mb: 3 }}>
-              📝 Booking Details
-            </Typography>
+      {/* Animated Background Blobs */}
+      <motion.div
+        animate={{ x: [0, 20, 0], y: [0, 20, 0] }}
+        transition={{ duration: 8, repeat: Infinity, repeatType: "reverse" }}
+        style={{
+          position: 'absolute',
+          top: -100,
+        right: isMobile ? 0 : -100,
+          width: 200,
+          height: 200,
+          background: 'radial-gradient(circle, #FE6B8B 0%, #FF8E53 100%)',
+          borderRadius: '50%',
+          opacity: 0.2,
+          zIndex: 0,
+        }}
+      />
+      <motion.div
+        animate={{ x: [-20, 0, -20], y: [0, -20, 0] }}
+        transition={{ duration: 10, repeat: Infinity, repeatType: "reverse" }}
+        style={{
+          position: 'absolute',
+          bottom: -80,
+          left: -80,
+          width: 160,
+          height: 160,
+          background: 'radial-gradient(circle, #3f51b5 0%, #1a237e 100%)',
+          borderRadius: '50%',
+          opacity: 0.15,
+          zIndex: 0,
+        }}
+      />
 
+      {/* Header */}
+      <motion.div
+        initial={{ opacity: 0, y: -50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1 }}
+      >
+        <Box sx={{ textAlign: 'center', mb: 4, position: 'relative', zIndex: 1 }}>
+          <motion.div
+            whileHover={{ scale: 1.2 }}
+            transition={{ type: 'spring', stiffness: 300 }}
+            style={{ display: 'inline-block' }}
+          >
+            <CelebrationOutlined sx={{ fontSize: { xs: 40, md: 60 }, color: '#FE6B8B' }} />
+          </motion.div>
+          <Typography variant="h4" sx={{ fontWeight: 'bold', mt: 2, mb: 1, fontFamily: '"Sansation", sans-serif', }}>
+            Garba Night 2025
+          </Typography>
+          <Typography variant="subtitle1" sx={{ color: 'text.secondary', fontFamily: '"Sansation", sans-serif', }}>
+            Book Your Dance Floor Pass
+          </Typography>
+          <Chip
+            label="September 27, 2025"
+            sx={{ mt: 2, bgcolor: 'rgba(254, 107, 139, 0.2)', color: '#FE6B8B', fontFamily: '"Sansation", sans-serif', }}
+          />
+        </Box>
+      </motion.div>
+
+      {/* Booking Card */}
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1, delay: 0.5 }}
+      >
+        <Card
+          sx={{
+            borderRadius: 3,
+            boxShadow: '0 8px 20px rgba(0,0,0,0.15)',
+            transition: 'transform 0.3s, box-shadow 0.3s',
+            '&:hover': {
+              transform: 'translateY(-10px)',
+              boxShadow: '0 12px 24px rgba(0,0,0,0.25)',
+            },
+          }}
+        >
+          <CardContent sx={{ p: { xs: 3, md: 4 } }}>
+            <Typography variant="h6" sx={{ mb: 6, fontFamily: '"Sansation", sans-serif', }}>
+              Booking Details
+            </Typography>
             <Grid container spacing={3}>
               <Grid item xs={12} md={6}>
                 <TextField
                   fullWidth
                   label="Full Name"
                   value={formData.name}
-                  onChange={(e) => setFormData({...formData, name: e.target.value})}
-                  error={!!errors.name}
-                  helperText={errors.name}
+                  
+                   sx={{    width: { xs: '135%', sm: '350px' }, 
+    '& .MuiInputBase-root': {
+      height: '50px',                    // control input height
+      fontSize: '1.1rem',                // font size inside input
+    },
+ fontFamily: '"Sansation", sans-serif', }}
+                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                   InputProps={{
-                    startAdornment: <PersonOutlined sx={{ mr: 1, color: 'action.active' }} />
+                    startAdornment: <PersonOutlined sx={{ mr: 1, color: 'action.active' }} />,
                   }}
                 />
               </Grid>
-
               <Grid item xs={12} md={6}>
                 <TextField
                   fullWidth
                   label="Email Address"
                   type="email"
+                  sx={{    width: { xs: '135%', sm: '350px' }, 
+    '& .MuiInputBase-root': {
+      height: '50px',                    // control input height
+      fontSize: '1.1rem',                // font size inside input
+    },
+ fontFamily: '"Sansation", sans-serif', }}
                   value={formData.email}
-                  onChange={(e) => setFormData({...formData, email: e.target.value})}
-                  error={!!errors.email}
-                  helperText={errors.email}
+                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                   InputProps={{
-                    startAdornment: <EmailOutlined sx={{ mr: 1, color: 'action.active' }} />
+                    startAdornment: <EmailOutlined sx={{ mr: 1, color: 'action.active', fontFamily: '"Sansation", sans-serif', }} />,
                   }}
                 />
               </Grid>
-
               <Grid item xs={12} md={6}>
                 <TextField
                   fullWidth
                   label="Phone Number"
                   value={formData.phone}
-                  onChange={(e) => setFormData({...formData, phone: e.target.value})}
-                  error={!!errors.phone}
-                  helperText={errors.phone}
+                  sx={{    width: { xs: '135%', sm: '350px' }, 
+    '& .MuiInputBase-root': {
+      height: '50px',                    // control input height
+      fontSize: '1.1rem',                // font size inside input
+    },
+ fontFamily: '"Sansation", sans-serif', }}
+                  onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                   InputProps={{
-                    startAdornment: <PhoneOutlined sx={{ mr: 1, color: 'action.active' }} />
+                    startAdornment: <PhoneOutlined sx={{ mr: 1, color: 'action.active', fontFamily: '"Sansation", sans-serif', }} />,
                   }}
                 />
               </Grid>
-
               <Grid item xs={12} md={6}>
                 <FormControl fullWidth>
-                  <InputLabel>Ticket Type</InputLabel>
+                  <InputLabel  sx={{ fontFamily: '"Sansation", sans-serif', }}>Ticket Type</InputLabel>
                   <Select
                     value={formData.ticketType}
                     label="Ticket Type"
-                    onChange={(e) => setFormData({...formData, ticketType: e.target.value})}
+                    onChange={(e) => setFormData({ ...formData, ticketType: e.target.value })}
+                      sx={{  width: { xs: '143%', md: '350px' }, 
+                      height: '50px',                // set height
+          fontFamily: '"Sansation", sans-serif',
+          '& .MuiSelect-select': {
+            height: '10px',            // set height
+            display: 'flex',
+            alignItems: 'center',
+            fontSize: '1.1rem',        // font size
+          }
+        }}
                   >
                     {ticketTypes.map((ticket) => (
                       <MenuItem key={ticket.value} value={ticket.value}>
-                        <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+                        <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 , fontFamily: '"Sansation", sans-serif',}}>
                           <span>{ticket.icon}</span>
                           <span>{ticket.label} - ₹{ticket.price}</span>
                         </Box>
@@ -837,66 +912,93 @@ const TicketBooking = () => {
                   </Select>
                 </FormControl>
               </Grid>
-
               <Grid item xs={12} md={6}>
                 <TextField
                   fullWidth
                   type="number"
                   label="Quantity"
                   value={formData.quantity}
-                  onChange={(e) => setFormData({...formData, quantity: parseInt(e.target.value) || 1})}
+                   sx={{  width: { xs: '197%', md: '350px' }, 
+                      height: '120px',                // set height
+          fontFamily: '"Sansation", sans-serif',
+          '& .MuiSelect-select': {
+            height: '10px',            // set height
+            display: 'flex',
+            alignItems: 'center',
+            fontSize: '1.1rem',        // font size
+          },
+           '& .MuiFormHelperText-root': {
+      fontFamily: '"Sansation", sans-serif',  // Apply your desired font
+    },
+        
+        }}
+                  onChange={(e) => setFormData({ ...formData, quantity: parseInt(e.target.value) || 1 })}
                   inputProps={{ min: 1, max: 10 }}
-                  helperText={`You will receive ${formData.quantity} individual ticket${formData.quantity > 1 ? 's' : ''}`}
+                  helperText={`You will receive ${formData.quantity} ticket${formData.quantity > 1 ? 's' : ''}`}
                 />
               </Grid>
             </Grid>
 
-            <Divider sx={{ my: 3 }} />
+            <Divider sx={{ my: 4 }} />
 
-            <PriceCard elevation={3}>
-              <Typography variant="h6" gutterBottom>
-                💰 Total Amount
-              </Typography>
-              <Typography variant="h3" component="div">
-                ₹{calculateTicketPrice(formData)}
-              </Typography>
-              <Typography variant="body2">
-                {formData.quantity} × {ticketTypes.find(t => t.value === formData.ticketType)?.label}
-              </Typography>
-              <Typography variant="caption" display="block" sx={{ mt: 1 }}>
-                You will receive {formData.quantity} individual ticket{formData.quantity > 1 ? 's' : ''} with unique QR codes
-              </Typography>
-            </PriceCard>
-
-            <Box sx={{ mt: 4, textAlign: 'center' }}>
-              <Button
-                variant="contained"
-                size="large"
-                onClick={handleBooking}
-                disabled={isLoading || !razorpayLoaded}
-                startIcon={isLoading ? <CircularProgress size={20} /> : <PaymentOutlined />}
+            {/* Total Amount Card */}
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              transition={{ type: 'spring', stiffness: 300 }}
+            >
+              <Box
                 sx={{
-                  py: 2,
-                  px: 6,
-                  fontSize: '1.1rem',
                   background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
-                  '&:hover': {
-                    background: 'linear-gradient(45deg, #FE6B8B 60%, #FF8E53 100%)',
-                  }
+                  color: 'white',
+                  textAlign: 'center',
+                  p: 3,
+                  borderRadius: 2,
+                  boxShadow: '0 6px 18px rgba(0,0,0,0.2)',
+                  fontFamily: '"Sansation", sans-serif',
                 }}
               >
-                {isLoading ? 'Processing Payment...' : 
-                 !razorpayLoaded ? 'Loading Payment System...' : 
-                 `Book ${formData.quantity} Ticket${formData.quantity > 1 ? 's' : ''} Now`}
-              </Button>
+                <Typography variant="h6"  sx={{ fontFamily: '"Sansation", sans-serif', }}>💰 Total Amount</Typography>
+                <Typography variant="h3"  sx={{ fontFamily: '"Sansation", sans-serif', }}>₹{calculateTicketPrice(formData)}</Typography>
+                <Typography variant="body2"  sx={{ fontFamily: '"Sansation", sans-serif', }}>
+                  {formData.quantity} × {ticketTypes.find(t => t.value === formData.ticketType)?.label}
+                </Typography>
+                <Typography variant="caption" sx={{ mt: 1, display: 'block' ,fontFamily: '"Sansation", sans-serif', }}>
+                  You will receive {formData.quantity} ticket{formData.quantity > 1 ? 's' : ''} with unique QR codes
+                </Typography>
+              </Box>
+            </motion.div>
+
+            <Box sx={{ mt: 4, textAlign: 'center' }}>
+              <motion.div whileHover={{ scale: 1.05 }}>
+                <Button
+                  variant="contained"
+                  size="large"
+                  onClick={handleBooking}
+                  disabled={isLoading}
+                  startIcon={isLoading ? <CircularProgress size={20} /> : <PaymentOutlined />}
+                  sx={{
+                    py: 2,
+                    px: 6,
+                    fontSize: '1.1rem',
+                    fontFamily: '"Sansation", sans-serif',
+                    background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
+                    transition: 'background 0.3s',
+                    '&:hover': {
+                      background: 'linear-gradient(45deg, #FE6B8B 60%, #FF8E53 100%)',
+                    },
+                  }}
+                >
+                  {isLoading ? 'Processing Payment...' : `Book ${formData.quantity} Ticket${formData.quantity > 1 ? 's' : ''} Now`}
+                </Button>
+              </motion.div>
             </Box>
 
-            <Typography variant="body2" color="text.secondary" sx={{ mt: 2, textAlign: 'center' }}>
+            <Typography variant="body2" color="text.secondary" sx={{ mt: 2, textAlign: 'center', fontFamily: '"Sansation", sans-serif', }}>
               🔒 Secure payment powered by Razorpay
             </Typography>
           </CardContent>
         </Card>
-      </Box>
+      </motion.div>
     </Container>
   );
 };
