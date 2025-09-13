@@ -18,12 +18,12 @@
 }
 
 .overlay h1 {
-  font-size: 48px;
-  margin-bottom: 20px;
+  font-size: 40px;
+  margin-bottom: 25px;
 }
 
 .overlay p {
-  font-size: 20px;
+  font-size: 18px;
   margin-bottom: 30px;
 }
 
@@ -40,4 +40,20 @@
 
 .overlay button:hover {
   background-color: #e64a19;
+}
+
+@media (max-width: 600px) {
+  .banner-container {
+    height: 50vh;
+  }
+
+    .overlay h1 {
+        font-size: 24px;
+        margin-bottom: 15px;
+    }
+    .overlay p {
+        font-size: 12px;
+        margin-bottom: 20px;
+    }
+   
 }

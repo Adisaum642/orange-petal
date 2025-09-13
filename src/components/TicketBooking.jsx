@@ -835,7 +835,8 @@ const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
                   fullWidth
                   label="Full Name"
                   value={formData.name}
-                  
+                   error={!!errors.name}
+  helperText={errors.name}
                    sx={{    width: { xs: '110%', sm: '350px' }, 
     '& .MuiInputBase-root': {
       height: '50px',                    // control input height
@@ -860,6 +861,8 @@ const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
     },
  fontFamily: '"Sansation", sans-serif', }}
                   value={formData.email}
+                   error={!!errors.email}
+  helperText={errors.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                   InputProps={{
                     startAdornment: <EmailOutlined sx={{ mr: 1, color: 'action.active', fontFamily: '"Sansation", sans-serif', }} />,
@@ -877,6 +880,8 @@ const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
       fontSize: '1.1rem',                // font size inside input
     },
  fontFamily: '"Sansation", sans-serif', }}
+  error={!!errors.phone}
+  helperText={errors.phone}
                   onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                   InputProps={{
                     startAdornment: <PhoneOutlined sx={{ mr: 1, color: 'action.active', fontFamily: '"Sansation", sans-serif', }} />,
@@ -913,29 +918,36 @@ const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
                 </FormControl>
               </Grid>
               <Grid item xs={12} md={6}>
-                <TextField
-                  fullWidth
-                  type="number"
-                  label="Quantity"
-                  value={formData.quantity}
-                   sx={{  width: { xs: '150%', md: '350px' }, 
-                      height: '120px',                // set height
-          fontFamily: '"Sansation", sans-serif',
-          '& .MuiSelect-select': {
-            height: '10px',            // set height
-            display: 'flex',
-            alignItems: 'center',
-            fontSize: '1.1rem',        // font size
-          },
-           '& .MuiFormHelperText-root': {
-      fontFamily: '"Sansation", sans-serif',  // Apply your desired font
-    },
-        
-        }}
-                  onChange={(e) => setFormData({ ...formData, quantity: parseInt(e.target.value) || 1 })}
-                  inputProps={{ min: 1, max: 10 }}
-                  helperText={`You will receive ${formData.quantity} ticket${formData.quantity > 1 ? 's' : ''}`}
-                />
+              <FormControl fullWidth sx={{ width: { xs: '100%', md: '150px' } }}>
+  <InputLabel id="quantity-label">Quantity</InputLabel>
+  <Select
+    labelId="quantity-label"
+    value={formData.quantity}
+    label="Quantity"
+    onChange={(e) => setFormData({ ...formData, quantity: e.target.value })}
+    sx={{
+      height: '50px',
+      '& .MuiSelect-select': {
+        height: '50px',
+        display: 'flex',
+        alignItems: 'center',
+        fontSize: '1.1rem',
+      },
+    }}
+  >
+    {[1, 2, 3, 4, 5].map((qty) => (
+      <MenuItem key={qty} value={qty}>
+        {qty}
+      </MenuItem>
+    ))}
+  </Select>
+  <Typography 
+    variant="caption" 
+    sx={{ mt: 1, fontFamily: '"Sansation", sans-serif' }}
+  >
+    You will receive {formData.quantity} ticket{formData.quantity > 1 ? 's' : ''}
+  </Typography>
+</FormControl>
               </Grid>
             </Grid>
 
