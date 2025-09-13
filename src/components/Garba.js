@@ -26,7 +26,7 @@ const GarbaBanner = () => {
                 mt: { xs: 2, sm: 3, md: 4 },
                 px: { xs: 2, sm: 2.5, md: 3 },
                 py: 1,
-                pb:"35px",
+                pb:"30px",
                 fontSize: { xs: "14px", sm: "15px", md: "16px" },
                 fontWeight: 400,
                 "&:hover": {

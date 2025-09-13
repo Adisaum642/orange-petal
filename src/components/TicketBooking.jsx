@@ -895,7 +895,7 @@ const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
                     value={formData.ticketType}
                     label="Ticket Type"
                     onChange={(e) => setFormData({ ...formData, ticketType: e.target.value })}
-                      sx={{  width: { xs: '135%', md: '350px' }, 
+                      sx={{  width: { xs: '138%', md: '350px' }, 
                       height: '50px',                // set height
           fontFamily: '"Sansation", sans-serif',
           '& .MuiSelect-select': {
