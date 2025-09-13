@@ -836,7 +836,7 @@ const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
                   label="Full Name"
                   value={formData.name}
                   
-                   sx={{    width: { xs: '135%', sm: '350px' }, 
+                   sx={{    width: { xs: '120%', sm: '350px' }, 
     '& .MuiInputBase-root': {
       height: '50px',                    // control input height
       fontSize: '1.1rem',                // font size inside input
@@ -853,7 +853,7 @@ const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
                   fullWidth
                   label="Email Address"
                   type="email"
-                  sx={{    width: { xs: '135%', sm: '350px' }, 
+                  sx={{    width: { xs: '120%', sm: '350px' }, 
     '& .MuiInputBase-root': {
       height: '50px',                    // control input height
       fontSize: '1.1rem',                // font size inside input
@@ -871,7 +871,7 @@ const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
                   fullWidth
                   label="Phone Number"
                   value={formData.phone}
-                  sx={{    width: { xs: '135%', sm: '350px' }, 
+                  sx={{    width: { xs: '120%', sm: '350px' }, 
     '& .MuiInputBase-root': {
       height: '50px',                    // control input height
       fontSize: '1.1rem',                // font size inside input
@@ -890,7 +890,7 @@ const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
                     value={formData.ticketType}
                     label="Ticket Type"
                     onChange={(e) => setFormData({ ...formData, ticketType: e.target.value })}
-                      sx={{  width: { xs: '143%', md: '350px' }, 
+                      sx={{  width: { xs: '127%', md: '350px' }, 
                       height: '50px',                // set height
           fontFamily: '"Sansation", sans-serif',
           '& .MuiSelect-select': {
@@ -918,7 +918,7 @@ const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
                   type="number"
                   label="Quantity"
                   value={formData.quantity}
-                   sx={{  width: { xs: '197%', md: '350px' }, 
+                   sx={{  width: { xs: '150%', md: '350px' }, 
                       height: '120px',                // set height
           fontFamily: '"Sansation", sans-serif',
           '& .MuiSelect-select': {
