@@ -756,7 +756,7 @@ const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
         style={{
           position: 'absolute',
           top: -100,
-        right: isMobile ? 10 : -100,
+        right: isMobile ? 15 : -100,
           width: 200,
           height: 200,
           background: 'radial-gradient(circle, #FE6B8B 0%, #FF8E53 100%)',
@@ -836,7 +836,7 @@ const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
                   label="Full Name"
                   value={formData.name}
                   
-                   sx={{    width: { xs: '110%', sm: '350px' }, 
+                   sx={{    width: { xs: '100%', sm: '350px' }, 
     '& .MuiInputBase-root': {
       height: '50px',                    // control input height
       fontSize: '1.1rem',                // font size inside input
@@ -853,7 +853,7 @@ const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
                   fullWidth
                   label="Email Address"
                   type="email"
-                  sx={{    width: { xs: '110%', sm: '350px' }, 
+                  sx={{    width: { xs: '100%', sm: '350px' }, 
     '& .MuiInputBase-root': {
       height: '50px',                    // control input height
       fontSize: '1.1rem',                // font size inside input
@@ -871,7 +871,7 @@ const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
                   fullWidth
                   label="Phone Number"
                   value={formData.phone}
-                  sx={{    width: { xs: '110%', sm: '350px' }, 
+                  sx={{    width: { xs: '90%', sm: '350px' }, 
     '& .MuiInputBase-root': {
       height: '50px',                    // control input height
       fontSize: '1.1rem',                // font size inside input
