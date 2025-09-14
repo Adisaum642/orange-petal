@@ -37,7 +37,7 @@ const ScannerCard = styled(Card)(({ theme }) => ({
   minHeight: '400px'
 }));
 
-const API_BASE_URL = 'http://localhost:5001';
+const API_BASE_URL = 'https://garba-booking-backend.onrender.com';
 
 const QRScanner = () => {
   const [scanResult, setScanResult] = useState(null);
