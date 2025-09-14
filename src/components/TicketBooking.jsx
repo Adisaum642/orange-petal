@@ -111,7 +111,7 @@ const TicketBooking = () => {
   const [paymentData, setPaymentData] = useState(null);
 
   const ticketTypes = [
-    { value: 'regular', label: 'Regular Pass', price: 499, icon: '🎭' },
+    { value: 'regular', label: 'Regular Pass', price: 1, icon: '🎭' },
     { value: 'vip', label: 'VIP Pass', price: 1099, icon: '👑' },
     { value: 'couple', label: 'Couple Pass', price: 799, icon: '💑' }
   ];
@@ -177,6 +177,9 @@ const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
+
+
+
 
   const processPayment = async (orderData) => {
     try {
@@ -338,36 +341,51 @@ const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
     }
   };
 
-  const sendTicketsEmail = async (generatedTickets) => {
-    try {
-      console.log('📧 Sending tickets via email...');
-      
-      const emailData = {
-        to: formData.email,
-        customerName: formData.name,
-        tickets: generatedTickets,
-        eventName: 'Garba Night 2025',
-        eventDate: '2025-10-15',
-        totalAmount: calculateTicketPrice(formData),
-        paymentId: paymentData?.paymentId
-      };
+ const sendTicketsEmail = async (generatedTickets) => {
+  try {
+    console.log('📧 Sending tickets via email...', { 
+      email: formData.email, 
+      ticketsCount: generatedTickets.length 
+    });
+    
+    const emailData = {
+      to: formData.email,  // Changed from 'email' to 'to'
+      customerName: formData.name,
+      tickets: generatedTickets,
+      eventName: 'Garba Night 2025',
+      eventDate: '2025-09-27',
+      totalAmount: calculateTicketPrice(formData),
+      paymentId: paymentData?.paymentId
+    };
 
-      const response = await axios.post(`${API_BASE_URL}/api/send-tickets-email`, emailData, {
-        timeout: 15000 // 15 second timeout
-      });
-      
-      if (response.data && response.data.success) {
-        console.log('✅ Email sent successfully');
-        toast.success('📧 Tickets sent to your email!');
-        return true;
-      } else {
-        throw new Error(response.data?.message || 'Email sending failed');
-      }
-    } catch (error) {
-      console.error('❌ Email sending failed:', error.response?.data || error.message);
-      throw new Error('Failed to send tickets via email');
+    const response = await axios.post(`${API_BASE_URL}/api/send-tickets-email`, emailData, {
+      timeout: 30000 // 30 second timeout
+    });
+    
+    if (response.data && response.data.success) {
+      console.log('✅ Email sent successfully:', response.data);
+      toast.success(`📧 ${generatedTickets.length} ticket${generatedTickets.length > 1 ? 's' : ''} sent to your email!`);
+      return true;
+    } else {
+      throw new Error(response.data?.message || 'Email sending failed');
     }
-  };
+  } catch (error) {
+    console.error('❌ Email sending failed:', error.response?.data || error.message);
+    
+    // Show user-friendly error message
+    if (error.code === 'ECONNABORTED') {
+      toast.error('Email sending timed out. Please contact support.');
+    } else if (error.response?.status === 400) {
+      toast.error('Email data error. Please try booking again.');
+    } else {
+      toast.error('Failed to send tickets via email. Please contact support.');
+    }
+    
+    // Don't throw error - let booking continue
+    return false;
+  }
+};
+
 
   // Download ticket as PDF
   const downloadTicketAsPDF = async (ticket, index) => {
