@@ -7,6 +7,7 @@ import Services from './pages/Services';
 import Contact from './pages/Contact';
 import './App.css';
 import TicketBooking from './components/TicketBooking';
+import QRScanner from './components/QRScanner';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/services" element={<Services />} />
           <Route path="/contact" element={<Contact />} />
            <Route path="/booking" element={<TicketBooking />} />
+              <Route path="/qr" element={<QRScanner/>} />
         </Routes>
         <Footer />
       </div>
