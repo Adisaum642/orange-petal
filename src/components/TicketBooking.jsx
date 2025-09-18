@@ -111,8 +111,8 @@ const TicketBooking = () => {
   const [paymentData, setPaymentData] = useState(null);
 
   const ticketTypes = [
-    { value: 'regular', label: 'Regular Pass', price: 1, icon: '🎭' },
-    { value: 'vip', label: 'VIP Pass', price: 1099, icon: '👑' },
+    { value: 'regular', label: 'Regular Pass', price: 499, icon: '🎭' },
+    { value: 'family', label: 'Family Pass', price: 2199, icon: '👑' },
     { value: 'couple', label: 'Couple Pass', price: 799, icon: '💑' }
   ];
 
@@ -295,7 +295,7 @@ const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
               ticketNumber: i + 1
             })
           )}`,
-          venue: 'Event Hall, Gujarat',
+          venue: 'PARK PLAZA Hotel,Near Metro Zirakpur Chandigarh Highway zirakpur-140603', 
           time: '6:00 PM - 11:00 PM'
         });
       }
@@ -419,7 +419,9 @@ const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
             <div style="flex: 1; padding-right: 30px;">
               <div style="margin-bottom: 15px; display: flex;">
                 <span style="font-weight: bold; min-width: 130px; color: #333;">Ticket ID:</span>
-                <span style="color: #667eea; font-weight: bold; font-family: monospace;">${ticket.ticketId}</span>
+                <span style="color: #667eea; font-weight: bold; font-family: monospace;">${
+                  ticket.ticketId
+                }</span>
               </div>
               <div style="margin-bottom: 15px; display: flex;">
                 <span style="font-weight: bold; min-width: 130px; color: #333;">Name:</span>
@@ -429,12 +431,16 @@ const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
                 <span style="font-weight: bold; min-width: 130px; color: #333;">Type:</span>
                 <span style="color: #667eea; font-weight: bold;">${ticket.ticketType.toUpperCase()} PASS</span>
               </div>
-              ${ticket.ticketNumber ? `
+              ${
+                ticket.ticketNumber
+                  ? `
               <div style="margin-bottom: 15px; display: flex;">
                 <span style="font-weight: bold; min-width: 130px; color: #333;">Ticket Number:</span>
                 <span style="color: #666;">${ticket.ticketNumber} of ${ticket.totalTickets}</span>
               </div>
-              ` : ''}
+              `
+                  : ""
+              }
               <div style="margin-bottom: 15px; display: flex;">
                 <span style="font-weight: bold; min-width: 130px; color: #333;">Date:</span>
                 <span style="color: #666;">September 27, 2025</span>
@@ -445,7 +451,10 @@ const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
               </div>
               <div style="margin-bottom: 15px; display: flex;">
                 <span style="font-weight: bold; min-width: 130px; color: #333;">Venue:</span>
-                <span style="color: #666;">Event Hall, Gujarat</span>
+                <span style="color: #666;">PARK PLAZA Hotel,Near
+Metro Zirakpur
+Chandigarh Highway
+zirakpur-140603</span>
               </div>
               <div style="margin-bottom: 15px; display: flex;">
                 <span style="font-weight: bold; min-width: 130px; color: #333;">Status:</span>
@@ -454,7 +463,9 @@ const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
             </div>
             
             <div style="text-align: center; flex: 0 0 180px;">
-              <img src="${ticket.qrCode}" alt="QR Code" style="width: 150px; height: 150px; border: 3px solid #ffffff; border-radius: 15px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);" />
+              <img src="${
+                ticket.qrCode
+              }" alt="QR Code" style="width: 150px; height: 150px; border: 3px solid #ffffff; border-radius: 15px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);" />
               <div style="margin-top: 10px; font-size: 12px; color: #000; font-weight: bold;">
                 📱 SCAN FOR ENTRY
               </div>
@@ -474,7 +485,9 @@ const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
           
           <div style="text-align: center; margin-top: 40px; padding-top: 20px; border-top: 2px solid #eee; color: #666; font-size: 14px;">
             <p style="margin: 0;">Thank you for joining Garba Night 2025! 🎉</p>
-            <p style="margin: 5px 0 0 0;">Generated on ${new Date().toLocaleDateString()} | Payment ID: ${paymentData?.paymentId || 'N/A'}</p>
+            <p style="margin: 5px 0 0 0;">Generated on ${new Date().toLocaleDateString()} | Payment ID: ${
+        paymentData?.paymentId || "N/A"
+      }</p>
           </div>
         </div>
       `;
