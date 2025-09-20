@@ -11,6 +11,18 @@
   align-items: center;
 }
 
+.banner-container2 {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  color: white;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .overlay {
   background-color: rgba(0, 0, 0, 0.5); /* dark overlay for readability */
   padding: 20px;
@@ -55,5 +67,11 @@
         font-size: 12px;
         margin-bottom: 20px;
     }
+    .banner-container2 {
+    height: 23.5vh;
+    background-size: contain;  /* make image fit */
+    background-position: center;
+    background-repeat: no-repeat;
+  }
    
 }

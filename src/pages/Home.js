@@ -8,6 +8,7 @@ import WhatSetsUs from '../components/WhatSetsUs';
 import AboutUs from '../components/Aboutus'; 
 import WhyChoose from '../components/whychoose';
 import GarbaBanner from '../components/Garba';
+import GarbaPoster from '../components/GarbaPoster';
 import { Box} from "@mui/material";
 import CircularProgress from "@mui/material/CircularProgress";
 
@@ -53,6 +54,7 @@ const Home = () => {
         </div>
       </div>
       
+        <div className="services-section"><GarbaPoster /></div>
       <div className="services-section"><GarbaBanner /></div>
 <div className="services-section"><WhoWeAre/></div>
 
