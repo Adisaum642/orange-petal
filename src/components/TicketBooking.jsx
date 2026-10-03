@@ -479,7 +479,7 @@ zirakpur-140603</span>
               <li>Entry gates open at 6:00 PM</li>
               <li>No outside food or beverages allowed</li>
               <li>Show QR code for quick entry</li>
-              <li>Contact: info.upasana@orangepetal.in</li>
+              <li>Contact: info@orangepetal.in</li>
             </ul>
           </div>
           
@@ -757,7 +757,7 @@ zirakpur-140603</span>
                 • Each ticket has a unique QR code for entry<br/>
                 • All tickets have been emailed to: {formData.email}<br/>
                 • Download and save your tickets before the event<br/>
-                • Contact support: info.upasana@orangepetal.in
+                • Contact support: info@orangepetal.in
               </Alert>
               
               <Button 

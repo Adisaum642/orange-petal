@@ -40,7 +40,7 @@ const handleClose = () => {
           <h2>Get in Touch</h2>
           <p>We'd love to hear from you! Reach out to us for inquiries or bookings.</p>
           <ul>
-            <li>Email: info.upasana@orangepetal.in</li>
+            <li>Email: info@orangepetal.in</li>
             <li>Phone: +91 8920742226</li>
             <li>Address: Chawla Complex, Zirakpur, Chandigarh Road, Near KMG Hotel Zirakpur-140603</li>
           </ul>

@@ -1,14 +1,23 @@
-// GarbaBanner.js
 import React from 'react';
 import './GarbaBanner.css';
-import bannerImage from '../assets/garba.jpg'; // Ensure you have this image in the specified path
+
+import garbaPoster from '../assets/garbaPoster.jpeg';
+import garbaPosterMobile from '../assets/moblie_view.jpeg';
 
 const GarbaBanner = () => {
   return (
-    <div className="banner-container2" style={{ backgroundImage: `url(${bannerImage})`}}>
-     
-    
-    </div>
+    <picture className="banner-container2">
+      <source
+        media="(max-width: 768px)"
+        srcSet={garbaPosterMobile}
+      />
+
+      <img
+        src={garbaPoster}
+        alt="Garba Night"
+        className="garba-banner-image"
+      />
+    </picture>
   );
 };
 

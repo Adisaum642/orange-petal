@@ -1,77 +1,905 @@
-.banner-container {
-  position: relative;
-  height: 100vh;
-  width: 100%;
-  background-size: cover;
-  background-position: center;
-  color: white;
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 .banner-container2 {
-  position: relative;
-  height: 100vh;
+  display: block;
   width: 100%;
-  background-size: cover;
-  background-position: center;
-  color: white;
-  text-align: center;
+  margin-top: "-20px" !important;
+  padding-top: "35px" !important;
+  padding-bottom: "20px";
+}
+
+.banner-container{
+  display: block;
+  width: 100%;
+  margin-top: "-20px" !important;
+  padding-top: "35px" !important;
+  padding-bottom: "20px";
+}
+
+.garba-banner-image {
+  display: block;
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+  object-position: center;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+
+/* =========================================
+   MAIN BANNER
+========================================= */
+
+.garba-banner {
+  position: relative;
+
+  width: 100%;
+  min-height: 700px;
+
+  overflow: hidden;
+
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+
+  padding: 80px 25px;
+
+  background:
+    radial-gradient(
+      circle at 10% 20%,
+      rgba(255, 140, 66, 0.20),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 90% 80%,
+      rgba(111, 71, 204, 0.16),
+      transparent 30%
+    ),
+    linear-gradient(
+      135deg,
+      #e5d0bd 0%,
+      #dfc7b3 45%,
+      #e6d1bd 100%
+    );
+
+  font-family: "DM Sans", sans-serif;
 }
-.overlay {
-  background-color: rgba(0, 0, 0, 0.5); /* dark overlay for readability */
-  padding: 20px;
+
+
+/* =========================================
+   DECORATIVE BACKGROUND
+========================================= */
+
+.garba-glow {
+  position: absolute;
+
+  border-radius: 50%;
+
+  pointer-events: none;
+
+  z-index: 0;
+}
+
+.garba-glow-one {
+  width: 450px;
+  height: 450px;
+
+  top: -250px;
+  left: -180px;
+
+  border: 1px solid rgba(255, 255, 255, 0.6);
+
+  box-shadow:
+    0 0 0 40px rgba(255, 255, 255, 0.07),
+    0 0 0 80px rgba(255, 255, 255, 0.05),
+    0 0 0 120px rgba(255, 255, 255, 0.03);
+}
+
+.garba-glow-two {
+  width: 400px;
+  height: 400px;
+
+  right: -220px;
+  bottom: -220px;
+
+  background: rgba(111, 71, 204, 0.06);
+
+  border: 1px solid rgba(111, 71, 204, 0.15);
+
+  box-shadow:
+    0 0 0 40px rgba(111, 71, 204, 0.03),
+    0 0 0 80px rgba(111, 71, 204, 0.02);
+}
+
+.garba-circle {
+  position: absolute;
+
+  border-radius: 50%;
+
+  pointer-events: none;
+}
+
+.circle-one {
+  width: 10px;
+  height: 10px;
+
+  top: 25%;
+  left: 13%;
+
+  background: #e67626;
+
+  box-shadow:
+    0 0 0 8px rgba(230, 118, 38, 0.10),
+    0 0 0 16px rgba(230, 118, 38, 0.05);
+}
+
+.circle-two {
+  width: 8px;
+  height: 8px;
+
+  top: 30%;
+  right: 14%;
+
+  background: #6f47cc;
+
+  box-shadow:
+    0 0 0 8px rgba(111, 71, 204, 0.10),
+    0 0 0 16px rgba(111, 71, 204, 0.05);
+}
+
+
+/* =========================================
+   CONTENT
+========================================= */
+
+.garba-content {
+  position: relative;
+
+  z-index: 2;
+
+  width: 100%;
+  max-width: 1050px;
+
+  margin: 0 auto;
+
+  text-align: center;
+}
+
+
+/* =========================================
+   TOP LABEL
+========================================= */
+
+.garba-label {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 9px 20px;
+
+  border: 1px solid rgba(36, 25, 21, 0.25);
+
+  border-radius: 50px;
+
+  background: rgba(255, 255, 255, 0.15);
+
+  font-size: 10px;
+
+  font-weight: 800;
+
+  letter-spacing: 2.2px;
+
+  color: #3b2920;
+
+  margin-bottom: 20px;
+}
+
+
+/* =========================================
+   TITLE
+========================================= */
+
+.garba-title {
+  margin: 0;
+
+  font-family: "Playfair Display", serif;
+
+  font-size: clamp(
+    60px,
+    9vw,
+    110px
+  );
+
+  line-height: 0.9;
+
+  font-weight: 600;
+
+  letter-spacing: -4px;
+
+  color: #241915;
+}
+
+.garba-title span {
+  display: block;
+
+  margin-top: 8px;
+
+  color: #e67626;
+
+  font-style: italic;
+
+  font-weight: 500;
+}
+
+
+/* =========================================
+   DIVIDER
+========================================= */
+
+.garba-divider {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 12px;
+
+  margin: 27px auto 20px;
+
+  width: 150px;
+}
+
+.garba-divider span {
+  height: 1px;
+
+  width: 45px;
+
+  background: rgba(36, 25, 21, 0.35);
+}
+
+.garba-divider b {
+  color: #6f47cc;
+
+  font-size: 15px;
+
+  font-weight: 500;
+}
+
+
+/* =========================================
+   DESCRIPTION
+========================================= */
+
+.garba-description {
+  max-width: 610px;
+
+  margin: 0 auto;
+
+  color: #4d3d35;
+
+  font-size: 15px;
+
+  line-height: 1.7;
+
+  font-weight: 400;
+}
+
+
+/* =========================================
+   EVENT INFO
+========================================= */
+
+.event-info {
+  width: 100%;
+
+  max-width: 680px;
+
+  margin: 35px auto;
+
+  padding: 20px 28px;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  border-radius: 18px;
+
+  background: rgba(255, 255, 255, 0.34);
+
+  border: 1px solid rgba(255, 255, 255, 0.55);
+
+  backdrop-filter: blur(14px);
+
+  -webkit-backdrop-filter: blur(14px);
+
+  box-shadow:
+    0 15px 35px rgba(36, 25, 21, 0.05);
+}
+
+.event-info-item {
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  text-align: left;
+}
+
+.info-icon {
+  width: 42px;
+  height: 42px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 12px;
+
+  background: rgba(255, 255, 255, 0.45);
+
+  font-size: 20px;
+}
+
+.info-content small {
+  display: block;
+
+  margin-bottom: 4px;
+
+  color: #806c61;
+
+  font-size: 9px;
+
+  font-weight: 800;
+
+  letter-spacing: 1.5px;
+}
+
+.info-content strong {
+  display: block;
+
+  color: #241915;
+
+  font-size: 12px;
+
+  font-weight: 700;
+
+  letter-spacing: 0.5px;
+}
+
+.info-line {
+  width: 1px;
+
+  height: 42px;
+
+  margin: 0 40px;
+
+  background: rgba(36, 25, 21, 0.20);
+}
+
+
+/* =========================================
+   MAIN BOOKING
+========================================= */
+
+.main-booking {
+  width: 100%;
+
+  max-width: 680px;
+
+  margin: 0 auto;
+
+  padding: 15px 15px 15px 25px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  border-radius: 17px;
+
+  background: #241915;
+
+  box-shadow:
+    0 20px 45px rgba(36, 25, 21, 0.20);
+
+  text-align: left;
+}
+
+.ticket-title {
+  display: block;
+
+  color: #ffb27c;
+
+  font-size: 11px;
+
+  font-weight: 800;
+
+  letter-spacing: 1.7px;
+}
+
+.booking-content p {
+  margin: 5px 0 0;
+
+  color: rgba(255, 255, 255, 0.65);
+
+  font-size: 12px;
+}
+
+
+/* =========================================
+   BOOK NOW BUTTON
+========================================= */
+
+.main-book-button {
+  min-width: 145px !important;
+
+  height: 50px !important;
+
+  padding: 0 20px !important;
+
+  border-radius: 11px !important;
+
+  background: #ff8c42 !important;
+
+  color: #21150f !important;
+
+  font-family: "DM Sans", sans-serif !important;
+
+  font-size: 15px !important;
+
+  font-weight: 800 !important;
+
+  text-transform: none !important;
+
+  box-shadow: none !important;
+
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease !important;
+}
+
+.main-book-button span {
+  margin-left: 12px;
+
+  font-size: 20px;
+
+  transition: transform 0.3s ease;
+}
+
+.main-book-button:hover {
+  background: #ffa05f !important;
+
+  transform: translateY(-2px);
+}
+
+.main-book-button:hover span {
+  transform: translateX(4px);
+}
+
+
+/* =========================================
+   PLATFORM SECTION
+========================================= */
+
+.platform-section {
+  margin-top: 30px;
+}
+
+.platform-heading {
+  margin: 0 0 14px;
+
+  color: #6d5a50;
+
+  font-size: 9px;
+
+  font-weight: 800;
+
+  letter-spacing: 2.2px;
+}
+
+.platform-buttons {
+  display: flex;
+
+  justify-content: center;
+
+  align-items: stretch;
+
+  flex-wrap: wrap;
+
+  gap: 12px;
+}
+
+
+/* =========================================
+   PLATFORM CARD
+========================================= */
+
+.platform-card {
+  width: 210px;
+
+  min-height: 65px;
+
+  display: flex;
+
+  align-items: center;
+
+  padding: 10px 12px;
+
+  border-radius: 14px;
+
+  background: rgba(255, 255, 255, 0.38);
+
+  border: 1px solid rgba(255, 255, 255, 0.65);
+
+  text-decoration: none;
+
+  backdrop-filter: blur(8px);
+
+  -webkit-backdrop-filter: blur(8px);
+
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.platform-card:hover {
+  transform: translateY(-5px);
+
+  background: rgba(255, 255, 255, 0.72);
+
+  box-shadow:
+    0 12px 28px rgba(36, 25, 21, 0.12);
+}
+
+
+/* =========================================
+   PLATFORM ICON
+========================================= */
+
+.platform-icon {
+  width: 40px;
+
+  height: 40px;
+
+  flex-shrink: 0;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
   border-radius: 10px;
+
+  font-size: 11px;
+
+  font-weight: 900;
 }
 
-.overlay h1 {
-  font-size: 40px;
-  margin-bottom: 25px;
+.bms-icon {
+  background: #e91e63;
+
+  color: #ffffff;
 }
 
-.overlay p {
-  font-size: 18px;
-  margin-bottom: 30px;
+.district-icon {
+  background: #111111;
+
+  color: #ffffff;
+
+  font-size: 21px;
 }
 
-.overlay button {
-  background-color: #ff5722;
-  color: white;
-  border: none;
-  padding: 15px 30px;
-  font-size: 18px;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s;
+.swiggy-icon {
+  background: #ff7a00;
+
+  color: #ffffff;
+
+  font-size: 21px;
 }
 
-.overlay button:hover {
-  background-color: #e64a19;
+
+/* =========================================
+   PLATFORM TEXT
+========================================= */
+
+.platform-text {
+  flex: 1;
+
+  margin-left: 11px;
+
+  text-align: left;
 }
+
+.platform-text span {
+  display: block;
+
+  color: #806f66;
+
+  font-size: 8px;
+
+  line-height: 1.2;
+}
+
+.platform-text strong {
+  display: block;
+
+  margin-top: 3px;
+
+  color: #241915;
+
+  font-size: 12px;
+
+  font-weight: 800;
+
+  line-height: 1.2;
+}
+
+.platform-arrow {
+  color: #6f47cc;
+
+  font-size: 17px;
+
+  transition: transform 0.3s ease;
+}
+
+.platform-card:hover .platform-arrow {
+  transform: translate(2px, -2px);
+}
+
+
+/* =========================================
+   BOTTOM HIGHLIGHTS
+========================================= */
+
+.garba-bottom {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  flex-wrap: wrap;
+
+  gap: 22px;
+
+  margin-top: 32px;
+
+  color: rgba(36, 25, 21, 0.52);
+
+  font-size: 8px;
+
+  font-weight: 800;
+
+  letter-spacing: 2px;
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 768px) {
+
+  .garba-banner {
+    min-height: auto;
+
+    padding: 65px 20px;
+  }
+
+  .garba-title {
+    font-size: 76px;
+
+    letter-spacing: -3px;
+  }
+
+  .garba-description {
+    max-width: 520px;
+
+    font-size: 14px;
+  }
+
+  .event-info {
+    max-width: 560px;
+  }
+
+  .info-line {
+    margin: 0 25px;
+  }
+
+  .platform-card {
+    width: 200px;
+  }
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
 
 @media (max-width: 600px) {
-  .banner-container {
-    height: 50vh;
+
+  .garba-banner {
+    padding: 55px 15px;
   }
 
-    .overlay h1 {
-        font-size: 24px;
-        margin-bottom: 15px;
-    }
-    .overlay p {
-        font-size: 12px;
-        margin-bottom: 20px;
-    }
-    .banner-container2 {
-    height: 23.5vh;
-    background-size: contain;  /* make image fit */
-    background-position: center;
-    background-repeat: no-repeat;
+  .garba-glow-one {
+    width: 300px;
+    height: 300px;
+
+    left: -190px;
+    top: -150px;
   }
-   
+
+  .garba-glow-two {
+    width: 250px;
+    height: 250px;
+
+    right: -160px;
+    bottom: -130px;
+  }
+
+  .garba-label {
+    padding: 7px 14px;
+
+    font-size: 8px;
+
+    letter-spacing: 1.5px;
+
+    margin-bottom: 18px;
+  }
+
+  .garba-title {
+    font-size: 58px;
+
+    letter-spacing: -2.5px;
+  }
+
+  .garba-title span {
+    margin-top: 6px;
+  }
+
+  .garba-divider {
+    margin: 22px auto 17px;
+  }
+
+  .garba-description {
+    padding: 0 10px;
+
+    font-size: 13px;
+
+    line-height: 1.65;
+  }
+
+  /* Event Information */
+
+  .event-info {
+    flex-direction: column;
+
+    align-items: stretch;
+
+    gap: 15px;
+
+    margin: 28px auto;
+
+    padding: 17px;
+  }
+
+  .event-info-item {
+    justify-content: center;
+  }
+
+  .info-line {
+    width: 80%;
+
+    height: 1px;
+
+    margin: 0 auto;
+  }
+
+  /* Booking */
+
+  .main-booking {
+    flex-direction: column;
+
+    gap: 14px;
+
+    padding: 18px;
+
+    text-align: center;
+  }
+
+  .booking-content {
+    width: 100%;
+  }
+
+  .main-book-button {
+    width: 100% !important;
+
+    min-width: 100% !important;
+  }
+
+  /* Platforms */
+
+  .platform-section {
+    margin-top: 27px;
+  }
+
+  .platform-buttons {
+    display: grid;
+
+    grid-template-columns: 1fr;
+
+    gap: 9px;
+  }
+
+  .platform-card {
+    width: 100%;
+
+    min-height: 62px;
+  }
+
+  /* Bottom */
+
+  .garba-bottom {
+    gap: 10px 15px;
+
+    margin-top: 28px;
+
+    font-size: 7px;
+  }
+}
+
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 380px) {
+
+  .garba-banner {
+    padding: 45px 12px;
+  }
+
+  .garba-title {
+    font-size: 51px;
+  }
+
+  .garba-description {
+    font-size: 12px;
+  }
+
+  .info-content strong {
+    font-size: 10px;
+  }
+
+  .platform-card {
+    min-height: 58px;
+  }
+}
+/* Mobile */
+@media (max-width: 768px) {
+  .garba-banner-image {
+    height: 60vh;
+    min-height: 400px;
+    object-fit: cover;
+  }
+}
+
+/* Small mobile */
+@media (max-width: 480px) {
+  .garba-banner-image {
+    height: 55vh;
+    min-height: 350px;
+  }
 }
