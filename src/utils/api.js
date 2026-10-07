@@ -3,8 +3,8 @@ import axios from 'axios';
 
 // Configure base URL for your backend
 const API_BASE_URL = process.env.NODE_ENV === 'development' 
-  ? 'http://localhost:5001' 
-  : 'http://localhost:5001';
+  ? 'https://garba-booking-backend.onrender.com' 
+  : 'https://garba-booking-backend.onrender.com';
 
 // Create axios instance with default config
 const api = axios.create({

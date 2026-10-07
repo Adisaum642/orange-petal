@@ -43,7 +43,7 @@ import logo from '../assets/logo.png';
 import { motion } from 'framer-motion';
 
 // Configure API base URL
-const API_BASE_URL = 'http://localhost:5001';
+const API_BASE_URL = 'https://garba-booking-backend.onrender.com';
 
 // Custom styled components
 const GradientCard = styled(Card)(({ theme }) => ({
