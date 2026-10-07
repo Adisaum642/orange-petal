@@ -85,7 +85,7 @@ const GarbaBanner = () => {
             component={Link}
             to="/booking"
             className="main-book-button"
-            disabled
+            
           >
             Book Now
             <span>→</span>

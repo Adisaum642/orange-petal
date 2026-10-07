@@ -265,7 +265,7 @@ const validateQRCode = async (qrData) => {
       <Toaster position="top-center" />
       <Box sx={{ mt: 4, mb: 4 }}>
         <Typography variant="h4" align="center" gutterBottom sx={{ mt: 6, mb: 6 }}>
-          🎭 Garba Night 2025 - Entry Scanner
+          🎭 Garba Night 2026 - Entry Scanner
         </Typography>
 
         {scanStats && (

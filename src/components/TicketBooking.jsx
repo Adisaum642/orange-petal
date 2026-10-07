@@ -43,7 +43,7 @@ import logo from '../assets/logo.png';
 import { motion } from 'framer-motion';
 
 // Configure API base URL
-const API_BASE_URL = 'https://garba-booking-backend.onrender.com';
+const API_BASE_URL = 'http://localhost:5001';
 
 // Custom styled components
 const GradientCard = styled(Card)(({ theme }) => ({
@@ -100,7 +100,7 @@ const TicketBooking = () => {
     phone: '',
     ticketType: 'regular',
     quantity: 1,
-    eventDate: '2025-10-15'
+    eventDate: '2026-10-18'
   });
 
   const [isLoading, setIsLoading] = useState(false);
@@ -111,9 +111,12 @@ const TicketBooking = () => {
   const [paymentData, setPaymentData] = useState(null);
 
   const ticketTypes = [
-    { value: 'regular', label: 'Regular Pass', price: 499, icon: '🎭' },
-    { value: 'family', label: 'Family Pass', price: 2199, icon: '👑' },
-    { value: 'couple', label: 'Couple Pass', price: 799, icon: '💑' }
+    { value: 'regular', label: 'Phase 1 - Female', price: 1399, },
+    { value: 'family', label: 'Phase 1 - Male', price: 1999,  },
+    { value: 'couple', label: 'Phase 1 - Couple Pass', price: 3199, },
+    // { value: 'regular', label: 'Phase 1 - Groups for 4', price: 5599, },
+    // { value: 'family', label: 'Phase 1 - Groups for 6', price: 7999, },
+    
   ];
 
 
@@ -201,7 +204,7 @@ const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
         key: process.env.REACT_APP_RAZORPAY_KEY_ID,
         amount: order.amount,
         currency: order.currency,
-        name: 'Garba Night 2025',
+        name: 'Garba Night 2026',
         description: 'Garba Dance Event Tickets',
         order_id: order.id,
         prefill: {
@@ -281,15 +284,15 @@ const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
           ticketNumber: i + 1,
           totalTickets: formData.quantity,
           paymentId: paymentResult.paymentId,
-          eventDate: '2025-10-15',
-          eventName: 'Garba Night 2025',
+          eventDate: '2026-10-18',
+          eventName: 'Garba Night 2026',
           individualPrice: calculateTicketPrice({...formData, quantity: 1}),
           status: 'Confirmed',
           qrCode: `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${encodeURIComponent(
             JSON.stringify({
               ticketId: ticketId,
-              event: 'Garba Night 2025',
-              date: '2025-09-27',
+              event: 'Garba Night 2026',
+              date: '2026-10-18',
               name: formData.name,
               type: formData.ticketType,
               ticketNumber: i + 1
@@ -324,7 +327,7 @@ const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
         eventDate: bookingData.eventDate,
         paymentId: paymentId,
         totalAmount: calculateTicketPrice(bookingData),
-        eventName: 'Garba Night 2025'
+        eventName: 'Garba Night 2026'
       };
 
       const response = await axios.post(`${API_BASE_URL}/api/generate-tickets`, ticketData, {
@@ -352,8 +355,8 @@ const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
       to: formData.email,  // Changed from 'email' to 'to'
       customerName: formData.name,
       tickets: generatedTickets,
-      eventName: 'Garba Night 2025',
-      eventDate: '2025-09-27',
+      eventName: 'Garba Night 2026',
+      eventDate: '2026-10-18',
       totalAmount: calculateTicketPrice(formData),
       paymentId: paymentData?.paymentId
     };
@@ -410,7 +413,7 @@ const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
             
           <img src="${logo}" alt="Company Logo" style="width: 60px; height: 60px; margin-right: 20px; object-fit: contain;" />
           <h1 style="color: #667eea; font-size: 36px; margin: 0; text-shadow: 2px 2px 4px rgba(0,0,0,0.1);">
-              🎭 Garba Night 2025 🎭
+              🎭 Garba Night 2026 🎭
             </h1>
             <p style="color: #666; font-size: 18px; margin: 5px 0 0 0;">Official Entry Ticket</p>
           </div>
@@ -443,11 +446,11 @@ const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
               }
               <div style="margin-bottom: 15px; display: flex;">
                 <span style="font-weight: bold; min-width: 130px; color: #333;">Date:</span>
-                <span style="color: #666;">September 27, 2025</span>
+                <span style="color: #666;">October 18, 2026</span>
               </div>
               <div style="margin-bottom: 15px; display: flex;">
                 <span style="font-weight: bold; min-width: 130px; color: #333;">Time:</span>
-                <span style="color: #666;">6:00 PM - 11:00 PM</span>
+                <span style="color: #666;">5:00 PM - 10:00 PM</span>
               </div>
               <div style="margin-bottom: 15px; display: flex;">
                 <span style="font-weight: bold; min-width: 130px; color: #333;">Venue:</span>
@@ -484,7 +487,7 @@ zirakpur-140603</span>
           </div>
           
           <div style="text-align: center; margin-top: 40px; padding-top: 20px; border-top: 2px solid #eee; color: #666; font-size: 14px;">
-            <p style="margin: 0;">Thank you for joining Garba Night 2025! 🎉</p>
+            <p style="margin: 0;">Thank you for joining Garba Night 2026! 🎉</p>
             <p style="margin: 5px 0 0 0;">Generated on ${new Date().toLocaleDateString()} | Payment ID: ${
         paymentData?.paymentId || "N/A"
       }</p>
@@ -494,7 +497,7 @@ zirakpur-140603</span>
 
       const opt = {
         margin: 0.5,
-        filename: `Garba_Night_2025_Ticket_${ticket.ticketId}.pdf`,
+        filename: `Garba_Night_2026_Ticket_${ticket.ticketId}.pdf`,
         image: { type: 'jpeg', quality: 0.98 },
         html2canvas: { 
           scale: 2,
@@ -576,7 +579,7 @@ zirakpur-140603</span>
       phone: '',
       ticketType: 'regular',
       quantity: 1,
-      eventDate: '2025-10-15'
+      eventDate: '2026-10-18'
     });
   };
 
@@ -648,7 +651,7 @@ zirakpur-140603</span>
                             <strong>Type:</strong> {ticket.ticketType.toUpperCase()}
                           </Typography>
                           <Typography variant="body2" sx={{ mb: 1 }}>
-                            <strong>Date:</strong> September 27, 2025
+                            <strong>Date:</strong> October 18, 2026
                           </Typography>
                           <Typography variant="body2">
                             <strong>Status:</strong> <Chip size="small" label="Confirmed" color="success" />
@@ -708,13 +711,13 @@ zirakpur-140603</span>
                     <Typography><strong>Event:</strong></Typography>
                   </Grid>
                   <Grid item xs={6}>
-                    <Typography>Garba Night 2025</Typography>
+                    <Typography>Garba Night 2026</Typography>
                   </Grid>
                   <Grid item xs={6}>
                     <Typography><strong>Date:</strong></Typography>
                   </Grid>
                   <Grid item xs={6}>
-                    <Typography>September 27, 2025</Typography>
+                    <Typography>October 18, 2026</Typography>
                   </Grid>
                   <Grid item xs={6}>
                     <Typography><strong>Tickets:</strong></Typography>
@@ -827,13 +830,13 @@ zirakpur-140603</span>
             <CelebrationOutlined sx={{ fontSize: { xs: 40, md: 60 }, color: '#FE6B8B' }} />
           </motion.div>
           <Typography variant="h4" sx={{ fontWeight: 'bold', mt: 2, mb: 1, fontFamily: '"Sansation", sans-serif', }}>
-            Garba Night 2025
+            Garba Night 2026
           </Typography>
           <Typography variant="subtitle1" sx={{ color: 'text.secondary', fontFamily: '"Sansation", sans-serif', }}>
             Book Your Dance Floor Pass
           </Typography>
           <Chip
-            label="September 27, 2025"
+            label="October 18, 2026"
             sx={{ mt: 2, bgcolor: 'rgba(254, 107, 139, 0.2)', color: '#FE6B8B', fontFamily: '"Sansation", sans-serif', }}
           />
         </Box>

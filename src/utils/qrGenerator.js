@@ -9,7 +9,7 @@ export const generateQRCode = async (ticketData) => {
     // Encrypt ticket information
     const ticketInfo = {
       ticketId,
-      eventName: 'Garba Night 2025',
+      eventName: 'Garba Night 2026',
       attendeeName: ticketData.name,
       eventDate: ticketData.eventDate,
       ticketType: ticketData.ticketType,
